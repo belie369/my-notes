@@ -1,4 +1,5 @@
 const addBtn = document.querySelector('.add');
+const deleteAllBtn = document.querySelector('.delete-all');
 
 const deleteBtns = document.getElementsByClassName('delete-note');
 // live collections!
@@ -14,3 +15,17 @@ const error = document.querySelector('#error');
 let selectedValue;
 
 let cardID = 0;
+
+const openPanel = () => {
+	notePanel.style.display = 'flex';
+};
+
+const closePanel = () => {
+	notePanel.style.display = 'none';
+	error.style.visibility = 'hidden';
+	textarea.value = '';
+	category.selectedIndex = 0;
+};
+
+addBtn.addEventListener('click', openPanel);
+cancelBtn.addEventListener('click', closePanel);
