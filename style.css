@@ -55,6 +55,7 @@ body {
 .note {
 	margin: 40px 20px;
 	width: 240px;
+	min-height: 250px;
 	background-color: rgb(255, 243, 0);
 	border: 1px solid black;
 }

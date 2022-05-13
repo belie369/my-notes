@@ -10,7 +10,7 @@ const notePanel = document.querySelector('.note-panel');
 const noteArea = document.querySelector('.note-area');
 const category = document.querySelector('#category');
 const textarea = document.querySelector('#text');
-const error = document.querySelector('#error');
+const error = document.querySelector('.error');
 
 let selectedValue;
 
@@ -27,5 +27,41 @@ const closePanel = () => {
 	category.selectedIndex = 0;
 };
 
+const addNote = () => {
+	if (textarea.value !== '' && category.options[category.selectedIndex].value !== '0') {
+		createNote();
+		error.style.visibility = 'hidden';
+	} else {
+		error.style.visibility = 'visible';
+	}
+};
+
+const createNote = () => {
+	const newNote = document.createElement('div');
+	newNote.classList.add('note');
+	newNote.setAttribute('id', cardID);
+
+	newNote.innerHTML = `
+	<div class="note-header">
+                <h3 class="note-title">${selectedValue}</h3>
+                <button class="delete-note"><i class="fas fa-times icon"></i></button>
+            </div>
+            <div class="note-body">
+			${textarea.value}
+            </div>
+	`;
+
+	noteArea.appendChild(newNote);
+	cardID++;
+
+	closePanel();
+};
+
+const selectValue = () => {
+	selectedValue = category.options[category.selectedIndex].text;
+	console.log(selectedValue);
+};
+
 addBtn.addEventListener('click', openPanel);
 cancelBtn.addEventListener('click', closePanel);
+saveBtn.addEventListener('click', addNote);
