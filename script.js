@@ -42,13 +42,13 @@ const createNote = () => {
 	newNote.setAttribute('id', cardID);
 
 	newNote.innerHTML = `
-	<div class="note-header">
+		<div class="note-header">
                 <h3 class="note-title">${selectedValue}</h3>
                 <button class="delete-note"><i class="fas fa-times icon"></i></button>
-            </div>
-            <div class="note-body">
+        </div>
+        <div class="note-body">
 			${textarea.value}
-            </div>
+     	</div>
 	`;
 
 	noteArea.appendChild(newNote);
