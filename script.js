@@ -79,6 +79,9 @@ const checkColor = (note) => {
 
 const deleteNote = (id) => {
 	const noteToDelete = document.getElementById
+
+
+	
 }
 
 addBtn.addEventListener('click', openPanel);
